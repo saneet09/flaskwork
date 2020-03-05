@@ -198,4 +198,4 @@ if __name__ == "__main__":
     init_files('dumps/netaporter_gb.json') 
     prepare_dataset('dumps/netaporter_gb.json')
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "project.settings.dev")
-    app.run(debug=True, host = '0.0.0.0', port=5000)
+    app.run(debug=True)
