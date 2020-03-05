@@ -3,13 +3,21 @@ import json
 import os
 import sys
 import numpy as np 
-
+url = 'https://drive.google.com/a/greendeck.co/uc?id=19r_vn0vuvHpE-rJpFHvXHlMvxa8UOeom&export=download'
 app = Flask(__name__)
+CORS(app)
+def init_files(dump_path = 'dumps/netaporter_gb.json'):
+    if dump_path.split('/')[0] not in os.listdir():
+        os.mkdir(dump_path.split('/')[0])
+    if os.path.exists(dump_path):
+        pass
+    else:
+        gdown.download(url = url, output = dump_path, quiet=False)
 
 @app.route("/task1")
 def task1():
     product_json=[]
-    with open("E:/flask/netaporter_gb.json",encoding="utf8") as fp:
+    with open("dumps/netaporter_gb.json",encoding="utf8") as fp:
         for product in fp.readlines():
             product_json.append(json.loads(product))
     a=52383
@@ -35,7 +43,7 @@ def task1():
 @app.route("/task2")
 def task2():
     product_json=[]
-    with open("E:/flask/netaporter_gb.json",encoding="utf8") as fp:
+    with open("dumps/netaporter_gb.json",encoding="utf8") as fp:
         for product in fp.readlines():
             product_json.append(json.loads(product))
     a=52383
@@ -60,7 +68,7 @@ def task2():
 @app.route("/task3")
 def task3():
     product_json=[]
-    with open("E:/flask/netaporter_gb.json",encoding="utf8") as fp:
+    with open("dumps/netaporter_gb.json",encoding="utf8") as fp:
         for product in fp.readlines():
             product_json.append(json.loads(product))
     a=52383
@@ -88,7 +96,7 @@ def task3():
 @app.route("/task4")
 def task4():
     product_json=[]
-    with open("E:/flask/netaporter_gb.json",encoding="utf8") as fp:
+    with open("dumps/netaporter_gb.json",encoding="utf8") as fp:
         for product in fp.readlines():
             product_json.append(json.loads(product))
     a=52383
@@ -128,7 +136,7 @@ def task4():
 @app.route("/task5")
 def task5():
     product_json=[]
-    with open("E:/flask/netaporter_gb.json",encoding="utf8") as fp:
+    with open("dumps/netaporter_gb.json",encoding="utf8") as fp:
         for product in fp.readlines():
             product_json.append(json.loads(product))
     value=0
@@ -157,7 +165,7 @@ def task6():
 @app.route("/task7")
 def task7():
     product_json=[]
-    with open("E:/flask/netaporter_gb.json",encoding="utf8") as fp:
+    with open("dumps/netaporter_gb.json",encoding="utf8") as fp:
         for product in fp.readlines():
             product_json.append(json.loads(product))
     a=52383
