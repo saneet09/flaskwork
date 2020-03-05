@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request
+from flask_cors import CORS
 import json
 import os
 import sys
@@ -13,6 +14,9 @@ def init_files(dump_path = 'dumps/netaporter_gb.json'):
         pass
     else:
         gdown.download(url = url, output = dump_path, quiet=False)
+def prepare_dataset(path = 'dumps/netaporter_gb.json'):
+    '''YOUR DATA PREPARATION CODE HERE'''
+    pass        
 
 @app.route("/task1")
 def task1():
@@ -190,7 +194,7 @@ def task7():
 
 
     
-#if __name__ == "__main__":
-app.secret_key = 'super_secret_key'
-app.debug = True    
-#app.run(debug=True)
+if __name__ == "__main__":
+    init_files('dumps/netaporter_gb.json') 
+    prepare_dataset('dumps/netaporter_gb.json')
+    app.run(debug=True, host = '0.0.0.0', port=5000)
